@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Content Strategy Master Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            color: #1a5276;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #2874a6;
+            border-left: 4px solid #3498db;
+            padding-left: 12px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        /* Container and Layout */
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .hero-section {
+            text-align: center;
+            background: linear-gradient(135deg, #1a5276 0%, #3498db 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .hero-section h1 {
+            color: white;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        /* Professional Tables */
+        .strategy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .strategy-table thead tr {
+            background-color: #1a5276;
+            color: white;
+            text-align: left;
+        }
+
+        .strategy-table th,
+        .strategy-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .strategy-table tbody tr {
+            transition: background-color 0.2s;
+        }
+
+        .strategy-table tbody tr:hover {
+            background-color: #f1f8ff;
+        }
+
+        .strategy-table tbody tr:last-of-type {
+            border-bottom: 2px solid #1a5276;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: #f8fafc;
+            border-left: 4px solid #3498db;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .content-card h4 {
+            color: #2874a6;
+            margin-top: 0;
+        }
+
+        /* Checklist and Lists */
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            padding: 10px 0 10px 35px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            background: #27ae60;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+        }
+
+        /* SEO Metrics Display */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #3498db;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a5276;
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Mobile-First Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 10px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .hero-section {
+                padding: 25px 15px;
+            }
+
+            .strategy-table {
+                font-size: 0.85rem;
+            }
+
+            .strategy-table th,
+            .strategy-table td {
+                padding: 10px 12px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .content-card {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .strategy-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        /* Visual Elements */
+        .seo-pillars {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .pillar {
+            flex: 1;
+            min-width: 200px;
+            background: #e8f4fc;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #d1e7f5;
+        }
+
+        .pillar-icon {
+            font-size: 2rem;
+            color: #1a5276;
+            margin-bottom: 10px;
+        }
+
+        /* Priority Indicators */
+        .priority-high {
+            background-color: #fde8e8;
+            color: #c53030;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .priority-medium {
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .priority-low {
+            background-color: #d1fae5;
+            color: #065f46;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Code Display for SEO Elements */
+        .code-example {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1><i class="fas fa-chart-line"></i> Comprehensive SEO Content Strategy</h1>
+        <p>A complete guide to planning, creating, optimizing, and measuring content for maximum search visibility and
+            user engagement.</p>
+    </div>
+
+    <!-- SEO Content Strategy Framework -->
+    <div class="container">
+        <h2>SEO Content Strategy Framework</h2>
+
+        <div class="content-card">
+            <h4>Core Philosophy</h4>
+            <p>SEO content strategy integrates keyword optimization with user-centric content creation, ensuring every
+                piece serves both search engines and human readers effectively.</p>
+        </div>
+
+        <!-- SEO Pillars Visualization -->
+        <h3>Four SEO Content Pillars</h3>
+        <div class="seo-pillars">
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fas fa-search"></i></div>
+                <h4>Research</h4>
+                <p>Keyword & intent analysis</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fas fa-edit"></i></div>
+                <h4>Creation</h4>
+                <p>Quality content development</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fas fa-cogs"></i></div>
+                <h4>Optimization</h4>
+                <p>Technical & on-page SEO</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fas fa-chart-bar"></i></div>
+                <h4>Measurement</h4>
+                <p>Performance tracking & refinement</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyword Strategy Table -->
+    <div class="container">
+        <h2>Keyword Research & Mapping</h2>
+
+        <table class="strategy-table">
+            <thead>
+                <tr>
+                    <th>Keyword Type</th>
+                    <th>Search Intent</th>
+                    <th>Content Format</th>
+                    <th>Priority</th>
+                    <th>Target Metrics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pillar Keywords</td>
+                    <td>Informational/Commercial</td>
+                    <td>Comprehensive Guides, Category Pages</td>
+                    <td><span class="priority-high">High</span></td>
+                    <td>Authority, Backlinks, Traffic</td>
+                </tr>
+                <tr>
+                    <td>Secondary Keywords</td>
+                    <td>Informational</td>
+                    <td>Blog Posts, Articles</td>
+                    <td><span class="priority-medium">Medium</span></td>
+                    <td>Traffic, Engagement</td>
+                </tr>
+                <tr>
+                    <td>Long-Tail Keywords</td>
+                    <td>Specific Solutions</td>
+                    <td>How-To Guides, Tutorials</td>
+                    <td><span class="priority-medium">Medium</span></td>
+                    <td>Conversions, Engagement</td>
+                </tr>
+                <tr>
+                    <td>Transactional Keywords</td>
+                    <td>Commercial/Buying</td>
+                    <td>Product Pages, Landing Pages</td>
+                    <td><span class="priority-high">High</span></td>
+                    <td>Conversions, Revenue</td>
+                </tr>
+                <tr>
+                    <td>Question Keywords</td>
+                    <td>Informational/Solutions</td>
+                    <td>FAQ Pages, Q&A Content</td>
+                    <td><span class="priority-low">Low</span></td>
+                    <td>Featured Snippets, Voice Search</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Content Creation Checklist -->
+    <div class="container">
+        <h2>Content Creation Checklist</h2>
+
+        <h3>Pre-Writing Requirements</h3>
+        <ul class="checklist">
+            <li>Keyword research completed with search intent identified</li>
+            <li>Competitor analysis for content gaps and opportunities</li>
+            <li>Target audience persona and pain points defined</li>
+            <li>Content objective and call-to-action determined</li>
+            <li>Outline created with logical flow and structure</li>
+        </ul>
+
+        <h3>Writing & Optimization</h3>
+        <ul class="checklist">
+            <li>Title includes primary keyword (near beginning)</li>
+            <li>Meta description contains keyword and value proposition</li>
+            <li>URL is clean, descriptive, and includes keyword</li>
+            <li>Headings (H1-H3) used properly with keyword variations</li>
+            <li>Content addresses user intent comprehensively</li>
+            <li>Images optimized with descriptive alt text</li>
+            <li>Internal links to relevant content included</li>
+            <li>External links to authoritative sources included</li>
+            <li>Content passes readability tests (grade level appropriate)</li>
+        </ul>
+    </div>
+
+    <!-- On-Page SEO Elements -->
+    <div class="container">
+        <h2>On-Page SEO Optimization</h2>
+
+        <h3>Critical HTML Elements for SEO</h3>
+        <div class="code-example">
+            &lt;!-- SEO Optimized Page Structure --&gt;<br>
+            &lt;title&gt;Primary Keyword | Secondary Keyword | Brand Name&lt;/title&gt;<br>
+            &lt;meta name="description" content="[Keyword-rich description under 160 characters with value
+            proposition]"&gt;<br>
+            <br>
+            &lt;h1&gt;Primary Keyword Phrase&lt;/h1&gt;<br>
+            &lt;h2&gt;Supporting Subheading with Related Term&lt;/h2&gt;<br>
+            &lt;img src="image.jpg" alt="Descriptive alt text with keyword" width="800" height="600"&gt;<br>
+            <br>
+            &lt;!-- Structured Data Markup --&gt;<br>
+            &lt;script type="application/ld+json"&gt;<br>
+            {<br>
+            "@context": "https://schema.org",<br>
+            "@type": "Article",<br>
+            "headline": "Article Title",<br>
+            "author": {<br>
+            "@type": "Person",<br>
+            "name": "Author Name"<br>
+            }<br>
+            }<br>
+            &lt;/script&gt;
+        </div>
+
+        <!-- SEO Metrics Display -->
+        <h3>Key Content Performance Metrics</h3>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Organic Traffic</div>
+                <div class="metric-value">2.5K</div>
+                <p>Monthly visits from search</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Avg. Position</div>
+                <div class="metric-value">4.2</div>
+                <p>Average keyword ranking</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Conversion Rate</div>
+                <div class="metric-value">3.8%</div>
+                <p>Goal completions per visit</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Time on Page</div>
+                <div class="metric-value">2:45</div>
+                <p>Average engagement time</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Types & Formats -->
+    <div class="container">
+        <h2>Content Types & Their SEO Value</h2>
+
+        <table class="strategy-table">
+            <thead>
+                <tr>
+                    <th>Content Type</th>
+                    <th>Best For</th>
+                    <th>SEO Impact</th>
+                    <th>Production Effort</th>
+                    <th>Update Frequency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pillar/Cornerstone</td>
+                    <td>Authority building</td>
+                    <td>Very High</td>
+                    <td>High</td>
+                    <td>6-12 months</td>
+                </tr>
+                <tr>
+                    <td>How-To Guides</td>
+                    <td>Long-tail keywords</td>
+                    <td>High</td>
+                    <td>Medium-High</td>
+                    <td>12-18 months</td>
+                </tr>
+                <tr>
+                    <td>List Articles</td>
+                    <td>Social sharing</td>
+                    <td>Medium</td>
+                    <td>Medium</td>
+                    <td>6-12 months</td>
+                </tr>
+                <tr>
+                    <td>Product Pages</td>
+                    <td>Transactional keywords</td>
+                    <td>High</td>
+                    <td>Medium</td>
+                    <td>As needed</td>
+                </tr>
+                <tr>
+                    <td>Blog Posts</td>
+                    <td>Regular updates</td>
+                    <td>Medium</td>
+                    <td>Low-Medium</td>
+                    <td>3-6 months</td>
+                </tr>
+                <tr>
+                    <td>Video Content</td>
+                    <td>Engagement & retention</td>
+                    <td>High (with transcript)</td>
+                    <td>High</td>
+                    <td>12-24 months</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Content Calendar & Workflow -->
+    <div class="container">
+        <h2>Content Planning Calendar</h2>
+
+        <div class="content-card">
+            <h4><i class="far fa-calendar-alt"></i> Quarterly Content Planning</h4>
+            <p>Plan content in quarterly cycles with monthly reviews. Align with seasonal trends, product launches, and
+                industry events.</p>
+        </div>
+
+        <h3>Monthly Content Workflow</h3>
+        <table class="strategy-table">
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Activities</th>
+                    <th>SEO Focus</th>
+                    <th>Deliverables</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Week 1</td>
+                    <td>Keyword research, Topic ideation</td>
+                    <td>Gap analysis, Trend identification</td>
+                    <td>Content briefs, Keyword mapping</td>
+                </tr>
+                <tr>
+                    <td>Week 2</td>
+                    <td>Content creation, Draft writing</td>
+                    <td>On-page optimization, Internal linking</td>
+                    <td>First drafts, Image selection</td>
+                </tr>
+                <tr>
+                    <td>Week 3</td>
+                    <td>Editing, Optimization, Review</td>
+                    <td>Technical SEO check, Mobile optimization</td>
+                    <td>Final content, Meta tags</td>
+                </tr>
+                <tr>
+                    <td>Week 4</td>
+                    <td>Publishing, Promotion, Analysis</td>
+                    <td>Performance tracking, Backlink outreach</td>
+                    <td>Published content, Performance report</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- E-A-T & Quality Guidelines -->
+    <div class="container">
+        <h2>E-A-T & Content Quality Standards</h2>
+
+        <div class="content-card">
+            <h4>Expertise, Authoritativeness, Trustworthiness</h4>
+            <p>Google's E-A-T guidelines emphasize the importance of content created by experts, demonstrated authority
+                in the field, and trustworthy information presentation.</p>
+        </div>
+
+        <table class="strategy-table">
+            <thead>
+                <tr>
+                    <th>E-A-T Component</th>
+                    <th>Implementation</th>
+                    <th>Content Examples</th>
+                    <th>Verification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Expertise</td>
+                    <td>Author credentials, Experience citations</td>
+                    <td>Tutorials by practitioners, Case studies</td>
+                    <td>Author bios, Certifications, Portfolio</td>
+                </tr>
+                <tr>
+                    <td>Authoritativeness</td>
+                    <td>Backlinks from authoritative sites, Industry recognition</td>
+                    <td>Research papers, Industry reports</td>
+                    <td>Backlink profile, Industry mentions</td>
+                </tr>
+                <tr>
+                    <td>Trustworthiness</td>
+                    <td>Transparency, Accuracy, Security</td>
+                    <td>Product reviews with testing, Medical advice with citations</td>
+                    <td>HTTPS, Clear privacy policy, Contact information</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Mobile-First Considerations -->
+    <div class="container">
+        <h2>Mobile-First Content Optimization</h2>
+
+        <div class="content-card">
+            <h4><i class="fas fa-mobile-alt"></i> Mobile SEO Priorities</h4>
+            <p>With mobile-first indexing, ensure content is fully accessible, readable, and functional on mobile
+                devices with fast load times and responsive design.</p>
+        </div>
+
+        <h3>Mobile Content Guidelines</h3>
+        <ul class="checklist">
+            <li>Content width adapted for mobile screens (max 100% width)</li>
+            <li>Font size minimum 16px for body text on mobile</li>
+            <li>Touch targets (buttons, links) at least 44x44 pixels</li>
+            <li>Images responsive with proper compression for mobile</li>
+            <li>Content hierarchy clear without horizontal scrolling</li>
+            <li>Page load time under 3 seconds on mobile</li>
+            <li>Interstitial pop-ups minimized for better UX</li>
+        </ul>
+    </div>
+
+    <!-- Performance Tracking -->
+    <div class="container">
+        <h2>Content Performance Tracking Framework</h2>
+
+        <h3>Monthly Content Audit Metrics</h3>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Top Performing</div>
+                <div class="metric-value">12</div>
+                <p>Content pieces driving 80% of traffic</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Needs Update</div>
+                <div class="metric-value">8</div>
+                <p>Content pieces declining in rankings</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">New Opportunities</div>
+                <div class="metric-value">15</div>
+                <p>Keywords to target in next quarter</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Backlinks Gained</div>
+                <div class="metric-value">24</div>
+                <p>New referring domains this month</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h4><i class="fas fa-sync-alt"></i> Continuous Improvement Cycle</h4>
+            <p>SEO content strategy is not a one-time effort. Implement a continuous cycle of: Research → Create →
+                Publish → Measure → Optimize → Repeat.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>SEO Content Strategy Master Guide</strong> | Created for comprehensive SEO implementation</p>
+        <p>© <span id="currentYear"></span> | All basic nuances of SEO content creation included</p>
+        <p style="margin-top: 15px; font-size: 0.8rem; color: #888;">
+            This code is designed to work independently without affecting existing page navigation JavaScript.
+            All CSS is contained within this file with mobile-first responsive design.
+        </p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="notes.html">Notes</a>
+            <a href="resources.html">Resources</a>
+            <a href="glossary.html">Glossary</a>
+        </div>
+    </div>
+
+    <script>
+        // Simple script for current year in footer (won't interfere with your navigation)
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile-friendly table row highlighting
+        document.addEventListener('DOMContentLoaded', function () {
+            const tableRows = document.querySelectorAll('.strategy-table tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('click', function () {
+                    this.style.backgroundColor = this.style.backgroundColor === 'rgb(241, 248, 255)' ? '' : '#f1f8ff';
+                });
+            });
+
+            // Mobile menu simulation (won't interfere with existing navigation)
+            console.log('SEO Content Strategy page loaded successfully. This script runs independently.');
+        });
+    </script>
+</body>
+
+</html>

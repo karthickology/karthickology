@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Mastery Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #8b5cf6;
+            --light: #f8fafc;
+            --gray-light: #e2e8f0;
+            --gray: #64748b;
+            --gray-dark: #334155;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f6f9fc 0%, #f1f5f9 100%);
+            color: var(--secondary);
+            line-height: 1.6;
+            font-size: 16px;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 16px;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--gray-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: none;
+            background: var(--light);
+            border-radius: var(--radius);
+            color: var(--gray-dark);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--gray-light);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .mobile-nav-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray);
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem;
+            border-radius: var(--radius);
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .mobile-nav-links i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 2.5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            z-index: -1;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--secondary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .action-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--light), var(--gray-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .action-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .action-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-content {
+            padding: 1.5rem;
+        }
+
+        /* Version Selector */
+        .version-selector {
+            margin-bottom: 1.5rem;
+        }
+
+        .version-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .version-select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--gray-light);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background: white;
+            color: var(--secondary);
+            appearance: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .version-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .select-arrow {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            pointer-events: none;
+        }
+
+        /* Table of Contents */
+        .toc-container {
+            margin-bottom: 2rem;
+        }
+
+        .toc-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .toc-link:hover,
+        .toc-link.active {
+            background: var(--light);
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        .toc-number {
+            font-size: 0.8rem;
+            color: var(--gray);
+            min-width: 20px;
+        }
+
+        /* Progress Tracker */
+        .progress-tracker {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid #bae6fd;
+        }
+
+        .progress-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .progress-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #bfdbfe;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* Documentation Content */
+        .doc-content {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .doc-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .doc-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .doc-body {
+            padding: 2rem;
+        }
+
+        /* Topic Cards */
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .topic-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--light), #e0f2fe);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .topic-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--secondary);
+        }
+
+        .topic-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .topic-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Expandable Sections */
+        .expandable-section {
+            margin: 1.5rem 0;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 1.5rem;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .section-header:hover {
+            background: var(--light);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .section-toggle {
+            color: var(--gray);
+            transition: transform 0.3s;
+        }
+
+        .section-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: #fafafa;
+        }
+
+        .section-content.open {
+            padding: 2rem;
+            max-height: 5000px;
+        }
+
+        .content-block {
+            margin-bottom: 2rem;
+        }
+
+        .content-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-title i {
+            color: var(--primary);
+        }
+
+        /* SEO Checklist */
+        .seo-checklist {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid #bbf7d0;
+        }
+
+        .checklist-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checklist-title i {
+            color: var(--success);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #bbf7d0;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .checklist-check {
+            color: var(--success);
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .checklist-text {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--gray-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+        }
+
+        .footer-links-list {
+            list-style: none;
+        }
+
+        .footer-links-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links-list a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links-list a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .desktop-nav {
+                display: block;
+            }
+
+            .desktop-nav ul {
+                display: flex;
+                gap: 2rem;
+                list-style: none;
+            }
+
+            .desktop-nav a {
+                color: var(--gray-dark);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 0.95rem;
+                padding: 0.5rem 0;
+                position: relative;
+                transition: color 0.2s;
+            }
+
+            .desktop-nav a:hover,
+            .desktop-nav a.active {
+                color: var(--primary);
+            }
+
+            .desktop-nav a.active::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: var(--primary);
+                border-radius: 2px;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .quick-actions {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .main-content {
+                flex-direction: row;
+            }
+
+            .sidebar {
+                flex: 0 0 320px;
+            }
+
+            .doc-content {
+                flex: 1;
+            }
+
+            .footer-links {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3.2rem;
+            }
+
+            .topic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="logo-text">SEO Mastery</div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="topics.html">Topics</a></li>
+                    <li><a href="notes.html">Notes</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="glossary.html">Glossary</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="logo-text">SEO Mastery</div>
+            </div>
+            <button class="mobile-nav-close" id="mobileNavClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="topics.html"><i class="fas fa-book"></i> Topics</a></li>
+            <li><a href="notes.html"><i class="fas fa-cogs"></i> Notes</a></li>
+            <li><a href="resources.html"><i class="fas fa-tools"></i> Resources</a></li>
+            <li><a href="glossary.html"><i class="fas fa-bookmark"></i> Glossary</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container">
+            <h1 class="hero-title animate-in">SEO Learning Documentation</h1>
+            <p class="hero-subtitle animate-in">Hi... I Am Karthik...now am Mastering search engine optimization through
+                comprehensive guides,
+                practical techniques, and up-to-date strategies for digital marketing success.</p>
+
+            <div class="stats-grid animate-in">
+                <div class="stat-card">
+                    <span class="stat-number">92%</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Keywords Tracked</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">85%</span>
+                    <span class="stat-label">Traffic Increase</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">47</span>
+                    <span class="stat-label">Techniques Learned</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <div class="container">
+        <div class="quick-actions">
+            <div class="action-card animate-in">
+                <div class="action-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 class="action-title">Keyword Research</h3>
+                <p class="action-desc">Find profitable keywords and search opportunities</p>
+            </div>
+            <div class="action-card animate-in">
+                <div class="action-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3 class="action-title">On-Page SEO</h3>
+                <p class="action-desc">Optimize content and technical elements</p>
+            </div>
+            <div class="action-card animate-in">
+                <div class="action-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="action-title">Technical SEO</h3>
+                <p class="action-desc">Improve website infrastructure and speed</p>
+            </div>
+            <div class="action-card animate-in">
+                <div class="action-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3 class="action-title">Link Building</h3>
+                <p class="action-desc">Build authority through quality backlinks</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar animate-in">
+                <div class="sidebar-header">
+                    <h2 class="sidebar-title">
+                        <i class="fas fa-book-open"></i>
+                        Documentation
+                    </h2>
+                </div>
+
+                <div class="sidebar-content">
+                    <!-- Version Selector -->
+                    <div class="version-selector">
+                        <label class="version-label">Version</label>
+                        <div class="select-wrapper">
+                            <select class="version-select" id="versionSelect">
+                                <option value="v3.1" selected>Version 3.1 (Latest)</option>
+                                <option value="v3.0">Version 3.0</option>
+                                <option value="v2.5">Version 2.5</option>
+                                <option value="v2.0">Version 2.0</option>
+                            </select>
+                            <div class="select-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table of Contents -->
+                    <div class="toc-container">
+                        <h3 class="toc-title">Table of Contents</h3>
+                        <ul class="toc-list">
+                            <li class="toc-item">
+                                <a href="#introduction" class="toc-link">
+                                    <span class="toc-number">01</span>
+                                    <span>Introduction to SEO</span>
+                                </a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#fundamentals" class="toc-link">
+                                    <span class="toc-number">02</span>
+                                    <span>SEO Fundamentals</span>
+                                </a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#onpage" class="toc-link">
+                                    <span class="toc-number">03</span>
+                                    <span>On-Page Optimization</span>
+                                </a>
+                            </li>
+
+                            <li class="toc-item">
+                                <a href="#off page" class="toc-link">
+                                    <span class="toc-number">04</span>
+                                    <span>off page optimization </span>
+                                </a>
+                            </li>
+
+                            <li class="toc-item">
+                                <a href="#technical" class="toc-link">
+                                    <span class="toc-number">05</span>
+                                    <span>Technical SEO</span>
+                                </a>
+                            </li>
+                            <li class="toc-item">
+                                <a href="#analytics" class="toc-link">
+                                    <span class="toc-number">06</span>
+                                    <span>Analytics & Tracking</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Progress Tracker -->
+                    <div class="progress-tracker">
+                        <h3 class="progress-title">Learning Progress</h3>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Keyword Research</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>On-Page SEO</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Technical SEO</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Link Building</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Documentation Content -->
+            <main class="doc-content animate-in">
+                <div class="doc-header">
+                    <h1 class="doc-title">SEO Learning Documentation</h1>
+                    <p class="doc-subtitle">Comprehensive guide to mastering search engine optimization</p>
+                </div>
+
+                <div class="doc-body">
+                    <!-- Topics Grid -->
+                    <div class="topic-grid">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3 class="topic-title">Keyword Research</h3>
+                            <p class="topic-desc">Discover profitable keywords, analyze competition, and identify search
+                                opportunities for optimal content targeting.</p>
+                            <!-- In your cluster section, change each item to: -->
+                            <a href="keyword clusters.html" style="text-decoration: none; color: inherit;">
+                                <div <h3 style="margin: 0 0 0.5rem 0;">READ MORE...</h3>
+                                </div>
+                            </a>
+                            <div class="topic-meta">
+
+                            </div>
+                        </div>
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3 class="topic-title">Content Strategy</h3>
+                            <p class="topic-desc">Create SEO-optimized content that ranks well and engages your target
+                                audience with strategic planning.</p>
+                            <!-- In your cluster section, change each item to: -->
+                            <a href="content strategy cluster.html" style="text-decoration: none; color: inherit;">
+                                <div <h3 style="margin: 0 0 0.5rem 0;">READ MORE...</h3>
+                                </div>
+                            </a>
+
+                            <div class="topic-meta">
+                            </div>
+                        </div>
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3 class="topic-title">Technical SEO</h3>
+                            <p class="topic-desc">Optimize website infrastructure, improve site speed, and ensure search
+                                engines can crawl and index your site effectively.</p>
+                            <!-- In your cluster section, change each item to: -->
+                            <a href="technical cluster.html" style="text-decoration: none; color: inherit;">
+                                <div <h3 style="margin: 0 0 0.5rem 0;">READ MORE...</h3>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <h3 class="topic-title">Link Building</h3>
+                            <p class="topic-desc">Build quality backlinks, establish domain authority, and improve
+                                search rankings through strategic link acquisition.</p>
+                            <!-- In your cluster section, change each item to: -->
+                            <a href="link building cluster.html" style="text-decoration: none; color: inherit;">
+                                <div <h3 style="margin: 0 0 0.5rem 0;">READ MORE...</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Expandable Section: Introduction -->
+                    <div class="expandable-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3 class="section-title">Introduction to SEO</h3>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content" id="introduction">
+                            <div class="content-block">
+                                <h4 class="content-title">
+                                    <i class="fas fa-info-circle"></i>
+                                    What is SEO?
+                                </h4>
+                                <p>Search Engine Optimization (SEO) is the practice of improving website visibility in
+                                    organic search engine results. It involves optimizing various elements to increase
+                                    quality traffic from search engines like Google, Bing, and Yahoo.</p>
+                            </div>
+
+                            <div class="seo-checklist">
+                                <h4 class="checklist-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    SEO Fundamentals Checklist
+                                </h4>
+                                <div class="checklist-item">
+                                    <i class="fas fa-check checklist-check"></i>
+                                    <span class="checklist-text">Website is mobile-friendly and responsive</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <i class="fas fa-check checklist-check"></i>
+                                    <span class="checklist-text">Site speed optimized for fast loading</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <i class="fas fa-check checklist-check"></i>
+                                    <span class="checklist-text">Keyword research completed for target topics</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <i class="fas fa-check checklist-check"></i>
+                                    <span class="checklist-text">Title tags and meta descriptions optimized</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expandable Section: Fundamentals -->
+                    <div class="expandable-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3 class="section-title">SEO Fundamentals</h3>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content" id="fundamentals">
+                            <div class="content-block">
+                                <h4 class="content-title">
+                                    <i class="fas fa-layer-group"></i>
+                                    Core SEO Components
+                                </h4>
+                                <p>SEO consists of three main components that work together to improve search
+                                    visibility:</p>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li><strong>Technical SEO:</strong> Website infrastructure and performance</li>
+                                    <li><strong>On-Page SEO:</strong> Content and page-level optimizations</li>
+                                    <li><strong>Off-Page SEO:</strong> External signals and authority building</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expandable Section: Fundamentals -->
+                    <div class="expandable-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3 class="section-title">OFF PAGE SEO</h3>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content" id="off page">
+                            <div class="content-block">
+                                <h4 class="content-title">
+                                    <i class="fas fa-layer-group1"></i>
+                                    Core SEO Components
+                                </h4>
+                                <p>SEO consists of three main components that work together to improve search
+                                    visibility:</p>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li><strong>Technical SEO:</strong> Website infrastructure and performance</li>
+                                    <li><strong>On-Page SEO:</strong> Content and page-level optimizations</li>
+                                    <li><strong>Off-Page SEO:</strong> External signals and authority building</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expandable Section: On-Page SEO -->
+                    <div class="expandable-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h3 class="section-title">On-Page SEO Optimization</h3>
+                            <div class="section-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="section-content" id="onpage">
+                            <div class="content-block">
+                                <h4 class="content-title">
+                                    <i class="fas fa-edit"></i>
+                                    Content Optimization
+                                </h4>
+                                <p>On-page SEO focuses on optimizing individual web pages to rank higher and earn more
+                                    relevant traffic. Key elements include:</p>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li>Title tags and meta descriptions</li>
+                                    <li>Header tags (H1, H2, H3) structure</li>
+                                    <li>Keyword placement and density</li>
+                                    <li>Image optimization with alt text</li>
+                                    <li>Internal linking structure</li>
+                                    <li>Content quality and relevance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div>
+                    <h4 class="footer-column-title">Documentation</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="topics.html">Topics</a></li>
+                        <li><a href="notes.html">Notes</a></li>
+                        <li><a href="tools.html">Tools</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-column-title">Resources</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="glossary.html">Glossary</a></li>
+                        <li><a href="cheatsheets.html">Cheat Sheets</a></li>
+                        <li><a href="templates.html">Templates</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-column-title">Connect</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-column-title">Legal</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 SEO Mastery Documentation. All rights reserved. | This documentation tracks my personal
+                    SEO learning journey.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal JavaScript for UI interactions -->
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileNavClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target) && mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Expandable sections
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const toggleIcon = header.querySelector('.section-toggle i');
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                toggleIcon.classList.remove('fa-chevron-up');
+                toggleIcon.classList.add('fa-chevron-down');
+            } else {
+                content.classList.add('open');
+                toggleIcon.classList.remove('fa-chevron-down');
+                toggleIcon.classList.add('fa-chevron-up');
+            }
+        }
+
+        // Version selector
+        const versionSelect = document.getElementById('versionSelect');
+        versionSelect.addEventListener('change', (e) => {
+            alert(`Switching to SEO Documentation ${e.target.value}. This is a demo - in production, this would load the selected version.`);
+        });
+
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Close mobile menu if open
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = '';
+
+                    // Expand the target section if it's collapsed
+                    const sectionHeader = targetElement.closest('.expandable-section')?.querySelector('.section-header');
+                    if (sectionHeader && !targetElement.classList.contains('open')) {
+                        toggleSection(sectionHeader);
+                    }
+
+                    // Scroll to the target
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation classes on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.action-card, .stat-card, .topic-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
