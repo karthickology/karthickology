@@ -1,4 +1,13 @@
 // script.js - Single JavaScript file for all pages
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TW4JVKQSH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TW4JVKQSH0');
+</script>
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
@@ -655,4 +664,5 @@ function addGlobalEventListeners() {
             }
         });
     });
+
 }
