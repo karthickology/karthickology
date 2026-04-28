@@ -19,7 +19,233 @@
     <link rel="icon" type="image/png" href="images/myfavicon.png">
 
     <style>
-       * {
+      
+          /* CSS is the same as index.html - embedded for each page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .page-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 2rem 0;
+            min-height: 400px;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #2575fc;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .topic-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #6a11cb;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .topic-card h3 i {
+            margin-right: 10px;
+            color: #6a11cb;
+        }
+
+        .topic-card p {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .subtopics {
+            margin-top: 1rem;
+        }
+
+        .subtopics h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .subtopics ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+
+        .subtopics li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            color: #555;
+        }
+
+        .subtopics li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    <span>Karthickology</span>
+                </div>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="topics.html" class="active">Topics</a></li>
+                        <li><a href="notes.html">Notes</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
