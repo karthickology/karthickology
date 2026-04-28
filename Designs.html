@@ -221,6 +221,130 @@
                 grid-template-columns: 1fr;
             }
         }
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f3f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        /* Main container matching HONY's classic card style */
+        .hony-card {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .hony-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* The key: flexbox for side-by-side layout */
+        .image-text-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* IMAGE ELEMENT - left side (exactly as requested) */
+        .image-element {
+            flex: 1.2;
+            min-width: 280px;
+        }
+
+        .image-element img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 4 / 5; /* Classic HONY portrait ratio */
+        }
+
+        /* SIDE TEXT ELEMENT - right side (exactly as requested) */
+        .side-text-element {
+            flex: 1;
+            min-width: 280px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #ffffff;
+        }
+
+        /* Quote styling - matches HONY's clean, emotional feel */
+        .side-text-element .quote {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: #1a1a1a;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            quotes: "“" "”" "‘" "’";
+        }
+
+        .side-text-element .quote::before {
+            content: "“";
+            font-size: 1.8rem;
+            color: #d35400;
+        }
+
+        .side-text-element .quote::after {
+            content: "”";
+            font-size: 1.8rem;
+            color: #d35400;
+            vertical-align: top;
+        }
+
+        /* Attribution line (location/age/context) */
+        .side-text-element .attribution {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7f8c8d;
+            border-left: 3px solid #d35400;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Optional story text (HONY often includes a longer paragraph) */
+        .side-text-element .story-text {
+            margin-top: 1.25rem;
+            font-size: 1rem;
+            color: #2c3e50;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 1.25rem;
+        }
+
+        /* Responsive: stacks on mobile */
+        @media (max-width: 768px) {
+            .image-text-row {
+                flex-direction: column;
+            }
+            
+            .side-text-element {
+                padding: 1.75rem;
+            }
+            
+            .side-text-element .quote {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Optional: multiple cards example */
+        .demo-note {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -245,25 +369,8 @@
                 </nav>
             </div>
         </div>
-    </header>* {
-           
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
 
-<body>
-   
-<body>
-
-<div class="demo-note">
-    ⬇️ Exact HONY-style UI: Image Element (left) + Side Text Element (right) ⬇️
-</div>
-
-<!-- ========================================== -->
-<!-- YOUR EXACT IMAGE + SIDE TEXT UI STARTS HERE -->
-<!-- ========================================== -->
-
-<div class="hony-card">
+        <div class="hony-card">
     <div class="image-text-row">
         
         <!-- === IMAGE ELEMENT === -->
@@ -315,8 +422,24 @@
         </div>
     </div>
 </div>
+        
+    </header>* {
+           
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
-    </main>
+<body>
+   
+<body>
+
+
+
+<!-- ========================================== -->
+<!-- YOUR EXACT IMAGE + SIDE TEXT UI STARTS HERE -->
+<!-- ========================================== -->
+
+
 
     <footer>
         <div class="container">
